@@ -1,28 +1,14 @@
-version: "3"
+version: "3.8"
 
 services:
-  webapp:
-    build: ./webapp-service
-    container_name: webapp-service
-    ports:
-      - 9000:9000
-
-  user:
-    build: ./user-service
-    container_name: user-service
-    ports:
-      - 3000:3000
-    depends_on:
-      - redis
-
   finance:
-    build: ./finance-service
+    build: ./DMS-FinanceService
     container_name: finance-service
     ports:
       - 5000:5000
 
   aftersales:
-    build: ./aftersales-service
+    build: ./DMS-AfterSalesService
     container_name: aftersales-service
     ports:
       - 2000:2000
@@ -34,7 +20,7 @@ services:
       - 8010:8010
 
   sales:
-    build: ./sales-service
+    build: ./DMS-SalesService
     container_name: sales-service
     ports:
       - 8020:8020
